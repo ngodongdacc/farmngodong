@@ -1,0 +1,34 @@
+a {
+    color: black;
+    text-align: center;
+    height: 2em;
+    padding-top: 0.2em; 
+    /* border: 0.7px solid silver; */
+}
+a:hover { 
+    background: rgb(236, 234, 234);
+}
+.vatnuoi {
+    border: 0.7px solid silver;
+    border-radius: 8px;
+    background: whitesmoke;
+}
+
+.vatnuoi:hover { 
+    background: rgb(236, 234, 234);
+}
+i:hover { 
+    background: rgb(226, 118, 118);
+}
+i {
+    border-radius: 100%;
+}
+span { 
+    margin: 0.2em 0.1em 1.2em 0.1em;
+    border-radius: 100%;
+    background: silver;
+}
+span:hover { 
+    background: green;
+    color: white;
+}

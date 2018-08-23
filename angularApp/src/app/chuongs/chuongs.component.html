@@ -1,0 +1,24 @@
+<div class="row">
+  <div *ngFor='let chuong of chuongsService.chuongs' class="col-sm-3" style="border: 1px solid silver; min-height: 5em; margin: 0.3em 0.0em; background: rgb(253, 248, 248)">
+    <div class="Chuong" style="width: 100%; border-bottom: 1px solid silver; background: rgb(255, 240, 240)">
+      {{ chuong.tenChuong }}
+      <div class="chucnangchuong" style="float: right;">
+        <a style=" margin-right: 0.5em" (click)="openDiaLog(chuong)">
+          <span class="fas fa-edit"> </span>
+        </a>
+        <a (click)="deleteChuong(chuong)">
+          <span class="fas fa-trash-alt"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="vatNuoi">
+      <div class="col-sm-12">
+          <app-vat-nuois [chuongs] = 'chuong'></app-vat-nuois>
+      </div>
+    </div>
+  </div>
+  <div class="themchuong"> 
+      <button (click)="openDiaLog(this.selecedChuong)" style="margin: 0.3em 0.2em; background: rgb(255, 240, 240)"> <a class="fas fa-plus"> </a></button>
+    </div>
+</div>

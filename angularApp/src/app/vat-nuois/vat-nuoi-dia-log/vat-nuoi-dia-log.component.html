@@ -1,0 +1,97 @@
+<div class="modal-header">
+  <strong> Vật Nuôi </strong>
+</div>
+
+<div class="modal-body">
+  <form #vatNuoiForm = 'ngForm' >
+    <input type="hidden" name="_id" #_id = 'ngModel' [(ngModel)] = 'this.vatNuoiModal._id' >
+    <input type="hidden" name="me" #me = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.me' >
+    <input type="hidden" name="tinhCha" #tinhCha = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.tinhCha' >
+    <input type="hidden" name="xuatXu" #xuatXu = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.xuatXu' >
+    <div class="row">
+        <div class="form-group col-sm-3">
+            <label > Mã vật nuôi: </label>
+            <input type="text" class="form-control" name="maVatNuoi" #maVatNuoi = 'ngModel' [(ngModel)] ='this.vatNuoiModal.maVatNuoi' placeholder="Mã Vật Nuôi" />
+          </div>
+      
+          <div class="form-group col-sm-3">
+              <label > Ngày nhập chuồng: </label>
+              <input type="date" class="form-control" name="ngayNhapChuong" #ngayNhapChuong = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.ngayNhapChuong'  />
+           </div>
+
+           <div class="form-group col-sm-3">
+              <label > Ngày Sinh: </label>
+              <input type="date" class="form-control" name="ngaySinh" #ngaySinh = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.ngaySinh'  />
+           </div>
+
+           <div class="form-group col-sm-3">
+              <label > Giới tính: </label>
+              <select id="inputState" class="form-control" name="gioiTinh" #gioiTinh= 'ngModel' [(ngModel)] = 'this.vatNuoiModal.gioiTinh' >
+                  <option selected>Cái</option>
+                  <option>Đực</option>
+              </select>
+           </div>
+   
+     </div>
+
+     <div class="row" style="border: 1px solid silver; border-radius: 8px">
+       <div class="col-sm-12">
+          <label for=""> Vị Trí </label>
+       </div>
+       
+        <div class="form-group col-sm-4">
+            <label for="tenTrai">Tên trại: </label> <i class="fas fa-plus" style=" color: seagreen; float: right;" (click) = 'openDiaLog()'></i>
+            <select type="text" class="form-control" name="tenTrai" #tenTrai = 'ngModel' [(ngModel)] ='this.vatNuoiModal.tenTrai' placeholder="Tên Trại">
+            <option selected *ngFor = 'let trai of traisService.trais'>{{ trai.tenTrai}}</option>
+            </select>
+          </div>
+      
+          <div class="form-group col-sm-4">
+            <label for="tenDay">Tên Dãy</label>
+            <input type="text" class="form-control" name="tenDay" #tenDay = 'ngModel' [(ngModel)] ='this.vatNuoiModal.tenDay'  placeholder="Tên Dãy">
+          </div>
+      
+          <div class="form-group col-sm-4">
+            <label for="tenChuong">Tên chuồng</label>
+            <input type="text" class="form-control" name="tenChuong" #tenChuong = 'ngModel' [(ngModel)] ='this.vatNuoiModal.tenChuong'  placeholder="Tên chuồng"> 
+          </div>
+     </div>
+
+     <div class="row">
+        <div class="form-group col-sm-4">
+            <label > Phẩm Giống: </label>
+            <input type="text" class="form-control" name="phamGiong" #phamGiong = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.phamGiong'   />
+         </div>
+         
+         <div class="form-group col-sm-4">
+            <label > Loại: </label>
+            <input type="text" class="form-control" name="loai" #loai = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.loai'  />
+         </div>
+
+         <div class="form-group col-sm-4">
+            <label > Sức khỏe: </label>
+            <input type="text" class="form-control" name="sucKhoe" #sucKhoe = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.sucKhoe'  />
+         </div>
+     </div>
+     <div class="row">
+      <div class="form-group col-sm-12">
+        <label > Ghi chú: </label>
+        <input type="text" class="form-control" name="ghiChu" #ghiChu = 'ngModel' [(ngModel)] = 'this.vatNuoiModal.ghiChu'  />
+     </div>
+     </div> 
+     <select id="inputState" class="form-control">
+
+        <option selected *ngFor = 'let trai of traisService.trais'>{{ trai.tenTrai}}</option>
+        
+    </select>
+   
+  
+  </form>
+</div>
+
+<div class="modal-footer">
+  <div>
+    <button class="btn btn-success" style="margin-right: 0.2em" (click) = 'onSubmit(vatNuoiForm)'> Summit </button>
+    <button class="btn btn-close" [mat-dialog-close]="false" > Close </button>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="menu" style=" width: 100%;">
+      <div class="col-sm-12" style="height: 2.5em; background: rebeccapurple; margin-bottom: 1em">
+        <div class="row">
+          <div class="col-sm-5 col-xs-12" style=" height: 2.5em; background: palegreen; padding: 0.5em 0.5em">
+            <a>Không thai </a> |
+            <a>Đã lên giống </a>|
+            <a>Đã phối </a>|
+            <a>Mang thai</a>
+
+          </div>
+          <div class="col-sm-7 col-xs-12" style="height: 2.5em; background: navy">
+            <div class="row" style="float: right">
+              <div class="content-tools" style="height: 2em; padding: 0.3em; margin-right: 0.2em">
+                <div class="input-group" style="width: 10em; height: 3em">
+                  <input type="text" ng-model="searchText" name="table_search" style="height: 2em" class="form-control input-sm pull-right ng-pristine ng-valid ng-empty ng-touched"
+                    placeholder="Tìm kiếm">
+                  <div class="input-group-btn">
+                    <button class="btn btn-sm btn-default btn-flat">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="content-tools" style="height: 2em;padding: 0.3em; float: right">
+                <button class="btn btn-sm btn-default btn-flat ng-binding" (click)="openDiaLog(traiService.traii)" style="height: 2.1em; margin-right: 0.1em">
+                  <i class="fa fa-plus"></i> Trại </button>
+                <button class="btn btn-sm btn-success btn-flat ng-binding" (click)="addVatNuois()" style="height: 2.1em">
+                  <i class="fa fa-plus"></i> Gia súc </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <b>Danh sách Trại: </b>
+      <div *ngFor="let trai of traiService.trais">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="trai" style="float: left;">
+              <i class="fa fa-fw fa-home"></i>
+              <strong style="margin-right: 0.5em">{{trai.tenTrai}}: {{ trai.moTa }}</strong>
+              <a class="button" (click)='addDay(trai) ' style="background: rgb(195, 240, 127); border-radius: 7px ">
+                <i class="fas fa-plus"></i> Thêm dãy
+              </a>
+            </div>
+            <div class="chinhtrai" style="float: right;">
+              <a href="" style="margin-right: 0.4em">
+                <span class="fas fa-info-circle"> </span>
+              </a>
+
+              <a (click)="openDiaLog(trai)" style="margin-right: 0.4em">
+                <span class="fas fa-edit"> </span>
+              </a>
+              <a (click)="deleteTrai(trai)">
+                <span class="fas fa-trash-alt"></span>
+              </a>
+            </div>
+            <br>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 ">
+            <div *ngIf="trai">
+              <app-days [trais]="trai"></app-days>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

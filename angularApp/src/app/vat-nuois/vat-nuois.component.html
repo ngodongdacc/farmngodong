@@ -1,0 +1,14 @@
+<div class="row">
+  <div *ngFor ='let vatnuoi of vatNuoisService.vatNuois' style="margin: 0.2em 0.1em">
+     
+   <div class="vatnuoi"> 
+      <a class="btn btn-app" role="button" href="">  
+       <i class="fa fa-mars" *ngIf='vatnuoi.gioiTinh == true' aria-hidden="true"></i> 
+       <i class="fas fa-venus" *ngIf='vatnuoi.gioiTinh == false'></i>
+       {{ vatnuoi.maVatNuoi}}  
+      </a> 
+      <i class="fas fa-times-circle" (click) = "removeVatNuoi(vatnuoi)" style="padding-top: 0px; float: right; color: firebrick"></i>
+    </div>
+  </div>
+  <span class="fas fa-plus"  (click) = 'openDiaLog(this.chuongs)'> </span>
+</div>

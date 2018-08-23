@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <div class="modal-title" id="modal-title"> Chuồng </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" name ='chuongForm'  #chuongForm = "ngForm" >
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="chuongModal._id">
+      <div class="form-group">
+        <label for="">Tên Chuồng</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" #tenChuong="ngModel" name="tenChuong" [(ngModel)]="chuongModal.tenChuong"  placeholder="Nhập vào tên chuồng " required>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label for="">Mô tả</label>
+          <div class="col-sm-12">
+              <input type="text" class="form-control" #moTa="ngModel" name="moTa" [(ngModel)]="chuongModal.moTa"  placeholder="Nhập vào mô tả " >
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label for=""> Tên Dãy </label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control" #tenDay="ngModel" name="tenDay" [(ngModel)]="chuongModal.tenDay" value='chuongModal.tenDay' readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+                <label for=""> Tên trại </label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" #tenDay="ngModel" name="tenTrai" [(ngModel)]="chuongModal.tenTrai" value='chuongModal.tenTrai' readonly>
+                </div>
+              </div>
+         
+          
+          
+    </form>
+    <div class="modal-footer">
+        <button type="submit" id="submit" name="submit" (click) = 'onSubmit(chuongForm)' class="btn btn-primary " style=" height: 2em; padding: 0.2em 0.3em;">SUBMIT</button>
+        <button mat-button mat-dialog-close>Cancel</button>
+    </div>
+</div>

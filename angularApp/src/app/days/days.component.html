@@ -1,0 +1,26 @@
+<div class="row">
+  <div *ngFor='let day of daysService.days' style="border: 1px solid silver ; margin-bottom: 2em; width: 100%; border-radius: 5px">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12" style="background: rgb(195, 240, 127)">
+          <div class="day" style="float: left;">
+            <strong> {{day.tenDay}}: {{ day.moTa }} </strong>
+          </div>
+          
+          <div class="chucNangDay" style="float: right;">
+            <a style=" margin-right: 1em" (click)="openDiaLog(day)">
+              <span class="fas fa-edit"> </span>
+            </a>
+            <a style=" margin-right: 1em" (click)="removeDays(day)">
+              <span class="fas fa-trash-alt"></span>
+            </a>
+          </div>
+        
+        </div>
+        <div class="col-sm-12">
+          <app-chuongs [days]='day'></app-chuongs>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
