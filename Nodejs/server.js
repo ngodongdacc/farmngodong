@@ -41,5 +41,5 @@ mongoose.connection.on('error', (err) => {
 });
 
 app.listen(Port, function(){
-    console.log(`khoi tao server thanh cong :  ${Port}`);
+    console.log(`khoi tao server thanh cong a:  ${Port}`);
 })
