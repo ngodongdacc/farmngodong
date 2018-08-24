@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 
-var { mongoose } = require('./db');
+//var { mongoose } = require('./db');
+var { config } = require('./db');
 var  employeeRouter  = require('./controllers/employee');
 var  traiRouter  = require('./controllers/trai');
 var  dayRouter  = require('./controllers/day');
@@ -27,6 +28,16 @@ app.use('/vatnuois',vatNuoiRouter);
 
 app.get('/', function(req, res){
     res.send('hello');
+});
+
+mongoose.connect(config.database, { useMongoClient: true});
+// On Connection
+mongoose.connection.on('connected', () => {
+  console.log('Connected to Database '+config.database);
+});
+// On Error
+mongoose.connection.on('error', (err) => {
+  console.log('Database error '+err);
 });
 
 app.listen(Port, function(){
