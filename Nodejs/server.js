@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 //var { mongoose } = require('./db');
+const mongoose = require('mongoose');
 var { config } = require('./db');
 var  employeeRouter  = require('./controllers/employee');
 var  traiRouter  = require('./controllers/trai');
@@ -30,10 +31,10 @@ app.get('/', function(req, res){
     res.send('hello');
 });
 
-mongoose.connect(config.database, { useMongoClient: true});
+mongoose.connect(`mongodb://ngodongdac:dong300595@ds131902.mlab.com:31902/ngodongfarm`, { useMongoClient: true});
 // On Connection
 mongoose.connection.on('connected', () => {
-  console.log('Connected to Database '+config.database);
+  console.log('Connected to Database '+`mongodb://ngodongdac:dong300595@ds131902.mlab.com:31902/ngodongfarm`);
 });
 // On Error
 mongoose.connection.on('error', (err) => {
